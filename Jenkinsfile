@@ -8,6 +8,14 @@ pipeline {
     }
     
     stages {
+
+	stage('Build maven') {                          
+		
+		steps {
+			
+			sh 'mvn package'             
+		}         
+	}
 	    
 	stage('Build docker image') {
 

@@ -9,7 +9,7 @@ pipeline {
     
     stages {
         
-        stage('build') {
+        stage('Build maven') {
             
             steps {
                 
@@ -17,11 +17,14 @@ pipeline {
             }
         }
 
-	stage('delivery') {
+	stage('Build docker image') {
 
 	      steps {
 
-		  sh 'docker build -t docker-integration-test .'
+		  script {
+
+			  docker.build 'whatever/whateverelse:lts'
+		  }
 	       }
 	}
     }

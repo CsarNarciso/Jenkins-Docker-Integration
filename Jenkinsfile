@@ -8,22 +8,14 @@ pipeline {
     }
     
     stages {
-        
-        stage('Build maven') {
-            
-            steps {
-                
-                sh 'mvn package'
-            }
-        }
-
+	    
 	stage('Build docker image') {
 
 	      steps {
 
 		  script {
 
-			  docker.build 'whatever/whateverelse:lts'
+		  	docker.build 'whatever/whateverelse:lts'
 		  }
 	       }
 	}

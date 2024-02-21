@@ -16,5 +16,13 @@ pipeline {
                 sh 'mvn package'
             }
         }
+
+	stage('delivery') {
+
+	      steps {
+
+		  sh 'docker build -t docker-integration-test .'
+	       }
+	}
     }
 }

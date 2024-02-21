@@ -4,11 +4,11 @@ pipeline {
 
     environment {
 
-	DOCKER_USERNAME = 'csarnar'    
-	APP_NAME = 'jenkins-docker-integration'
-	RELEASE = '1.0.0'
-	IMAGE_NAME = '${DOCKER_USERNAME}' + '/' + '${APP_NAME}'
-	IMAGE_TAG = '${RELEASE}' + '-' + '${BUILD_NUMBER}'
+	DOCKER_USERNAME = "csarnar"    
+	APP_NAME = "jenkins-docker-integration"
+	RELEASE = "1.0.0"
+	IMAGE_NAME = "${DOCKER_USERNAME}" + "/" + "${APP_NAME}"
+	IMAGE_TAG = "${RELEASE}" + "-" + "${BUILD_NUMBER}"
     }
 	
     tools {
@@ -32,12 +32,12 @@ pipeline {
 
 		  script {
 
-		  	dockerImage = docker.build '${IMAGE_NAME}'
+		  	dockerImage = docker.build "${IMAGE_NAME}"
 
-			  withRegistry('',dockerHubKey) {
+			  withRegistry("",dockerHubKey) {
 
-				  dockerImage.push('${IMAGE_TAG}')
-				  dockerImage.push('latest')
+				  dockerImage.push("${IMAGE_TAG}")
+				  dockerImage.push("latest")
 			  }
 		  }
 	       }

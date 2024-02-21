@@ -32,12 +32,12 @@ pipeline {
 
 		  script {
 
-		  	docker-image = docker.build '${IMAGE_NAME}'
+		  	dockerImage = docker.build '${IMAGE_NAME}'
 
 			  withRegistry('',dockerHubKey) {
 
-				  docker-image.push('${IMAGE_TAG}')
-				  docker-image.push('latest')
+				  dockerImage.push('${IMAGE_TAG}')
+				  dockerImage.push('latest')
 			  }
 		  }
 	       }

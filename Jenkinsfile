@@ -34,7 +34,7 @@ pipeline {
 
 		  	dockerImage = docker.build "${IMAGE_NAME}"
 
-			  withRegistry("",dockerHubKey) {
+			  withRegistry('',dockerHubKey) {
 
 				  dockerImage.push("${IMAGE_TAG}")
 				  dockerImage.push("latest")

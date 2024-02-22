@@ -25,6 +25,15 @@ pipeline {
 			sh 'mvn package'             
 		}         
 	}
+
+
+	stage('Test') {                          
+		
+		steps {
+			
+			sh 'mvn test'             
+		}         
+	}
 	    
 	stage('Build docker image') {
 
